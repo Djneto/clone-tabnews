@@ -8,7 +8,7 @@ function checkPostgres() {
     "docker exec postgres-dev pg_isready --host localhost",
     (error, stdout) => {
       if (stdout.search("accepting connections") === -1) {
-        setTimeout(checkPostgres, 500);
+        checkPostgres();
         return;
       }
       TerminalLoader.stop("Postgres is ready and accepting connections!\n");
