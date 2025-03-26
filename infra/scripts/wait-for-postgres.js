@@ -1,5 +1,5 @@
 const { exec } = require("node:child_process");
-const TerminalLoader = require("./terminalLoader");
+const TerminalLoader = require("./terminal-loader");
 
 TerminalLoader.start("Waiting for Postgres to accept connections");
 
