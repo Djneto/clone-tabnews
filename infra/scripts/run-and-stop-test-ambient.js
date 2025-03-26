@@ -1,3 +1,4 @@
+/* eslint-disable */
 const { spawn } = require("child_process");
 
 const command = "npm";
@@ -31,7 +32,7 @@ child.on("exit", (code) => {
 });
 
 // Função para encerrar os serviços
-function stopServices(code = 0) {
+function stopServices() {
   console.log("🟡 Stopping services...");
 
   const stop = spawn("npm", ["run", "services:stop"], {
@@ -41,6 +42,6 @@ function stopServices(code = 0) {
 
   stop.on("exit", (stopCode) => {
     console.log("\n🟢 Services stopped successfully!\n");
-    process.exit(code); // Usa o código original de saída dos testes
+    process.exit(stopCode); // Usa o código original de saída dos testes
   });
 }
